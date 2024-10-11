@@ -1,0 +1,42 @@
+﻿@page
+@using RazorPageSample.Models;
+@model RazorPageSample.Pages.PersonsModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.parametricportfolio.com/-/media/parametric/fonts/fonts-v8.css" />
+    <style>
+        /* all */
+        html {
+        font-family: 'ParametricBlack', 'Segoe UI';
+            color: #FF0000 !important;
+        font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="display-4">Welcome</h1>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+        @foreach (var person in ViewData["personList"] as List<Person>)
+        {
+            <tr>
+                <td>@person.Name</td>
+                <td>@person.Title</td>
+                <td>@person.Description</td>
+            </tr>
+        }
+    </table>
+
+    <form method="post">
+        <button type="submit">print</button>
+    </form>
+</body>
+</html>
